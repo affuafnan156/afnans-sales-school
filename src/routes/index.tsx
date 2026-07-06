@@ -16,6 +16,7 @@ function Index() {
       <Nav />
       <Hero />
       <Tiers />
+      <Team />
       <ChatSection />
       <Invest />
       <Enroll />
@@ -346,6 +347,78 @@ function Enroll() {
             </button>
           </form>
         )}
+      </div>
+    </section>
+  );
+}
+
+function Team() {
+  const people = [
+    {
+      name: "Afnan",
+      role: "Founder & Lead Instructor",
+      bio: "8+ years closing high-ticket. Leads the weekly coaching calls and the core curriculum.",
+      initials: "AF",
+    },
+    {
+      name: "Sara Malik",
+      role: "Head Coach — Cold Outreach",
+      bio: "Ex-SDR leader. Runs the outbound track: cold email, LinkedIn, and DM frameworks.",
+      initials: "SM",
+    },
+    {
+      name: "Daniel Reyes",
+      role: "Closing Coach",
+      bio: "Reviews student call recordings and teaches the objection-handling scripts.",
+      initials: "DR",
+    },
+    {
+      name: "Priya Shah",
+      role: "Community & Student Success",
+      bio: "Runs the Discord, answers questions daily, and matches you with the right resources.",
+      initials: "PS",
+    },
+    {
+      name: "Marcus Lee",
+      role: "Business & Operations",
+      bio: "Handles onboarding, billing, and partnerships so the coaches can focus on teaching.",
+      initials: "ML",
+    },
+    {
+      name: "Zoya Ahmed",
+      role: "Content & Curriculum",
+      bio: "Produces the video lessons, script vault updates, and the free newsletter.",
+      initials: "ZA",
+    },
+  ];
+
+  return (
+    <section id="team" className="mx-auto max-w-6xl px-6 py-20">
+      <div className="mb-12 text-center">
+        <div className="text-xs uppercase tracking-[0.3em] text-primary">The Team</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">You're not learning from one person</h2>
+        <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+          Afnan leads, but a full team of coaches and operators helps every student get answers, feedback, and support.
+        </p>
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {people.map((p) => (
+          <div
+            key={p.name}
+            className="group rounded-2xl border border-border bg-card p-6 shadow-card transition hover:border-primary/60 hover:shadow-glow"
+          >
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary font-display text-xl text-primary-foreground shadow-glow">
+                {p.initials}
+              </div>
+              <div>
+                <div className="font-display text-xl">{p.name}</div>
+                <div className="text-xs uppercase tracking-widest text-primary">{p.role}</div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">{p.bio}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
