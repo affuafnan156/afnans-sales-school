@@ -16,6 +16,7 @@ function Index() {
       <Nav />
       <Hero />
       <Tiers />
+      <FAQ />
       <Team />
       <ChatSection />
       <Invest />
@@ -35,6 +36,7 @@ function Nav() {
         </a>
         <div className="hidden gap-8 text-sm md:flex">
           <a href="#tiers" className="text-muted-foreground hover:text-foreground">Learn</a>
+          <a href="#faq" className="text-muted-foreground hover:text-foreground">FAQ</a>
           <a href="#ask" className="text-muted-foreground hover:text-foreground">Ask AI</a>
           <a href="#invest" className="text-muted-foreground hover:text-foreground">Invest</a>
           <a href="#join" className="text-muted-foreground hover:text-foreground">Contact</a>
@@ -128,6 +130,82 @@ function Tiers() {
             Join Pro
           </a>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  const [open, setOpen] = useState<string | null>(null);
+
+  const questions = [
+    {
+      id: "free-cost",
+      q: "Is the Free Starter plan really free?",
+      a: "Yes. The Starter plan is $0 forever. You get the weekly newsletter, public YouTube lessons, a cold outreach script pack, and access to the community Discord.",
+    },
+    {
+      id: "pro-includes",
+      q: "What do I get with Pro Mentorship?",
+      a: "Pro includes the full course library, weekly live coaching with Afnan, a private mastermind, 1:1 pitch reviews, and the complete script vault. You can pay $197/month or $1,497 one-time for lifetime access.",
+    },
+    {
+      id: "switch-tiers",
+      q: "Can I start free and upgrade to Pro later?",
+      a: "Absolutely. Many students start on the free plan and upgrade once they're ready for live coaching and direct feedback.",
+    },
+    {
+      id: "who-teaches",
+      q: "Who teaches the lessons and runs the calls?",
+      a: "Afnan leads the live coaching and core curriculum. He is supported by a team of specialized coaches for outreach, closing, community, and operations.",
+    },
+    {
+      id: "time-commitment",
+      q: "How much time do I need each week?",
+      a: "Free students can follow along at their own pace. Pro students get the most value from 3-5 hours per week including live calls, practice, and lesson time.",
+    },
+    {
+      id: "refund",
+      q: "Is there a refund policy for Pro?",
+      a: "Yes. If Pro isn't the right fit, contact us within 14 days of joining for a full refund. No hard feelings.",
+    },
+    {
+      id: "invest",
+      q: "Can I invest in Afnan Sales Academy?",
+      a: "Yes. We're open to angel checks and strategic partners. Minimum ticket is $5,000 via a SAFE post-money agreement. Email invest@afnansales.com with your background and ticket size.",
+    },
+  ];
+
+  return (
+    <section id="faq" className="mx-auto max-w-4xl px-6 py-20">
+      <div className="mb-10 text-center">
+        <div className="text-xs uppercase tracking-[0.3em] text-primary">Support</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">Questions & answers</h2>
+        <p className="mt-3 text-muted-foreground">Everything you need to know about learning with us.</p>
+      </div>
+      <div className="space-y-3">
+        {questions.map(({ id, q, a }) => {
+          const isOpen = open === id;
+          return (
+            <div
+              key={id}
+              className={`rounded-xl border transition ${isOpen ? "border-primary/50 bg-card shadow-glow" : "border-border bg-card hover:border-primary/60"}`}
+            >
+              <button
+                onClick={() => setOpen(isOpen ? null : id)}
+                className="flex w-full items-center justify-between px-5 py-4 text-left"
+              >
+                <span className="font-display text-lg">{q}</span>
+                <span className={`ml-4 text-primary transition-transform ${isOpen ? "rotate-180" : ""}`}>▼</span>
+              </button>
+              {isOpen && (
+                <div className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground">
+                  {a}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
