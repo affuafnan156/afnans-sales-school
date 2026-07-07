@@ -16,6 +16,7 @@ function Index() {
       <Nav />
       <Hero />
       <Tiers />
+      <FAQ />
       <Team />
       <ChatSection />
       <Invest />
