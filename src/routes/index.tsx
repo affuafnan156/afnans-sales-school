@@ -36,6 +36,7 @@ function Nav() {
         </a>
         <div className="hidden gap-8 text-sm md:flex">
           <a href="#tiers" className="text-muted-foreground hover:text-foreground">Learn</a>
+          <a href="#faq" className="text-muted-foreground hover:text-foreground">FAQ</a>
           <a href="#ask" className="text-muted-foreground hover:text-foreground">Ask AI</a>
           <a href="#invest" className="text-muted-foreground hover:text-foreground">Invest</a>
           <a href="#join" className="text-muted-foreground hover:text-foreground">Contact</a>
