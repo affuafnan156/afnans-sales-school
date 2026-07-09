@@ -60,7 +60,7 @@ type Dict = {
   teamEyebrow: string; teamTitle: string; teamSub: string;
   chatEyebrow: string; chatTitle: string; chatSub: string; chatPlaceholder: string; chatSend: string; chatGreeting: string;
   investEyebrow: string; investTitle: string; investSub: string; minTicket: string; structure: string; useOfFunds: string; emailInvest: string; askFirst: string;
-  joinEyebrow: string; joinTitle: string; joinSub: string; joinFree: string; joinPro: string; joinName: string; joinEmail: string; joinSend: string; joinSent: string; joinSentSub: string; joinAgain: string;
+  joinEyebrow: string; joinTitle: string; joinSub: string; joinTabFree: string; joinTabPro: string; joinName: string; joinEmail: string; joinSend: string; joinSent: string; joinSentSub: string; joinAgain: string;
   regionLabel: string; languageLabel: string; assignedTo: string;
 };
 
