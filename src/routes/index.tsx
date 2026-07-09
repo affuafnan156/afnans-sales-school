@@ -140,39 +140,49 @@ function FAQ() {
 
   const questions = [
     {
+      id: "halal",
+      q: "Is everything you teach halal?",
+      a: "Yes. Every framework is built around sidq (truthfulness) and amanah (trust). We don't teach pressure tactics, deception, or how to sell haram products. If a technique compromises your deen, we don't teach it.",
+    },
+    {
+      id: "non-muslim",
+      q: "I'm not Muslim — can I still join?",
+      a: "Of course. The academy is built for Muslims but everyone is welcome. The sales frameworks are universal; the values-first approach just happens to be rooted in Islamic ethics.",
+    },
+    {
       id: "free-cost",
       q: "Is the Free Starter plan really free?",
-      a: "Yes. The Starter plan is $0 forever. You get the weekly newsletter, public YouTube lessons, a cold outreach script pack, and access to the community Discord.",
+      a: "Yes, $0 forever. You get the weekly newsletter, YouTube lessons, a halal cold outreach script pack, and the community Discord.",
     },
     {
       id: "pro-includes",
       q: "What do I get with Pro Mentorship?",
-      a: "Pro includes the full course library, weekly live coaching with Afnan, a private mastermind, 1:1 pitch reviews, and the complete script vault. You can pay $197/month or $1,497 one-time for lifetime access.",
+      a: "The full course library, weekly live coaching with Afnan, a private Muslim entrepreneurs mastermind, 1:1 pitch reviews, and the complete script vault. $197/month or $1,497 one-time for lifetime access.",
     },
     {
-      id: "switch-tiers",
-      q: "Can I start free and upgrade to Pro later?",
-      a: "Absolutely. Many students start on the free plan and upgrade once they're ready for live coaching and direct feedback.",
+      id: "riba",
+      q: "Do you teach anything involving riba or haram industries?",
+      a: "No. We explicitly avoid riba-based financing offers, gambling, alcohol, and other haram niches. If your product is halal, we'll help you sell it with excellence.",
     },
     {
       id: "who-teaches",
       q: "Who teaches the lessons and runs the calls?",
-      a: "Afnan leads the live coaching and core curriculum. He is supported by a team of specialized coaches for outreach, closing, community, and operations.",
+      a: "Afnan leads the live coaching and curriculum, supported by a team of Muslim coaches for outreach, closing, community, and operations.",
     },
     {
       id: "time-commitment",
       q: "How much time do I need each week?",
-      a: "Free students can follow along at their own pace. Pro students get the most value from 3-5 hours per week including live calls, practice, and lesson time.",
+      a: "Free students learn at their own pace. Pro students get the most value from 3-5 hours per week — live calls, practice, and lesson time, arranged around salah.",
     },
     {
       id: "refund",
       q: "Is there a refund policy for Pro?",
-      a: "Yes. If Pro isn't the right fit, contact us within 14 days of joining for a full refund. No hard feelings.",
+      a: "Yes. If Pro isn't the right fit, contact us within 14 days for a full refund. No hard feelings.",
     },
     {
       id: "invest",
-      q: "Can I invest in Afnan Sales Academy?",
-      a: "Yes. We're open to angel checks and strategic partners. Minimum ticket is $5,000 via a SAFE post-money agreement. Email invest@afnansales.com with your background and ticket size.",
+      q: "Can I invest in the academy?",
+      a: "Yes. We're open to Muslim angels and strategic partners. Minimum ticket is $5,000 via a riba-free equity SAFE. Email invest@afnansales.com with your background and ticket size.",
     },
   ];
 
