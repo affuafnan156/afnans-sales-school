@@ -55,14 +55,14 @@ function Hero() {
       <div className="mx-auto max-w-4xl px-6 py-24 text-center md:py-32">
         <span className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs uppercase tracking-widest text-primary">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-          Free & Paid Programs
+          Halal Sales Training · By Muslims, For Muslims
         </span>
         <h1 className="font-display text-5xl leading-[0.95] md:text-7xl">
-          LEARN <span className="text-gradient">SALES</span>.<br />
-          BUILD <span className="text-gradient">BUSINESS</span>.
+          HALAL <span className="text-gradient">SALES</span>.<br />
+          BARAKAH <span className="text-gradient">BUSINESS</span>.
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-          Practical sales training by Afnan. Start free, upgrade when you're ready, or invest in the growth of the academy.
+          As-salamu alaykum. Learn ethical sales and business the halal way — with sidq, amanah, and zero riba. Free lessons, live coaching, and a global ummah of closers.
         </p>
       </div>
     </section>
