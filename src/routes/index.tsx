@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef, useEffect, type FormEvent } from "react";
+import { useI18n, REGIONS, LANGUAGES, type RegionCode, type LangCode } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const INSTRUCTOR_EMAIL = "afnan@salesacademy.com";
 const INVEST_EMAIL = "invest@afnansales.com";
 
 type Msg = { role: "user" | "assistant"; content: string };
