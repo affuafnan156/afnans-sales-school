@@ -81,14 +81,14 @@ function Tiers() {
         <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Free</div>
           <div className="mt-2 font-display text-4xl">Starter</div>
-          <div className="mt-1 text-sm text-muted-foreground">Everything you need to begin — $0 forever.</div>
+          <div className="mt-1 text-sm text-muted-foreground">Halal sales fundamentals — $0 forever.</div>
           <ul className="mt-6 space-y-3 text-sm">
             {[
-              "Weekly sales newsletter",
-              "Full YouTube video library",
-              "Cold email & DM script pack (PDF)",
-              "Access to the public Discord community",
-              "Live monthly Q&A stream",
+              "Weekly halal sales newsletter",
+              "Full YouTube library (Muslim-friendly examples)",
+              "Halal cold email & DM script pack (PDF)",
+              "Brothers & sisters Discord community",
+              "Live monthly Q&A with Afnan",
             ].map((f) => (
               <li key={f} className="flex gap-3">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-muted-foreground" />
