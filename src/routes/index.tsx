@@ -388,6 +388,7 @@ function Invest() {
 }
 
 function Enroll() {
+  const { t, region } = useI18n();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [tier, setTier] = useState<"free" | "pro">("free");
@@ -396,44 +397,47 @@ function Enroll() {
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    const subject = encodeURIComponent(`New ${tier === "free" ? "Free" : "Pro"} signup: ${name || email}`);
+    const subject = encodeURIComponent(`New ${tier === "free" ? "Free" : "Pro"} signup (${region.code}): ${name || email}`);
     const body = encodeURIComponent(
-      `Hi Afnan,\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
+      `As-salamu alaykum ${region.instructorName},\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nRegion: ${region.label}\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
     );
-    window.location.href = `mailto:${INSTRUCTOR_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${region.instructorEmail}?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
   return (
     <section id="join" className="bg-hero border-t border-border">
       <div className="mx-auto max-w-2xl px-6 py-20 text-center">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary">Contact Afnan</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">Bismillah — let's begin</h2>
-        <p className="mt-3 text-muted-foreground">Choose your plan and Afnan will personally send you the next steps.</p>
+        <div className="text-xs uppercase tracking-[0.3em] text-primary">{t.joinEyebrow}</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.joinTitle}</h2>
+        <p className="mt-3 text-muted-foreground">{t.joinSub}</p>
+        <p className="mt-2 text-sm text-primary">
+          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label} · {region.instructorEmail}
+        </p>
 
         {sent ? (
           <div className="mx-auto mt-8 rounded-xl border border-primary/40 bg-card p-8 shadow-glow">
-            <div className="font-display text-2xl text-primary">You're in.</div>
-            <p className="mt-2 text-sm text-muted-foreground">Your email client just opened — send the message and Afnan will reply within 24 hours.</p>
+            <div className="font-display text-2xl text-primary">{t.joinSent}</div>
+            <p className="mt-2 text-sm text-muted-foreground">{t.joinSentSub}</p>
             <button onClick={() => setSent(false)} className="mt-6 text-xs uppercase tracking-widest text-primary hover:underline">
-              Send another
+              {t.joinAgain}
             </button>
           </div>
         ) : (
           <form onSubmit={submit} className="mx-auto mt-8 flex flex-col gap-3 rounded-xl border border-border bg-card p-6 text-left shadow-card">
             <div className="flex gap-2">
-              {(["free", "pro"] as const).map((t) => (
+              {(["free", "pro"] as const).map((v) => (
                 <button
                   type="button"
-                  key={t}
-                  onClick={() => setTier(t)}
+                  key={v}
+                  onClick={() => setTier(v)}
                   className={`flex-1 rounded-md border px-3 py-2 text-sm font-semibold transition ${
-                    tier === t
+                    tier === v
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-border bg-background text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {t === "free" ? "Free Starter" : "Pro Mentorship"}
+                  {v === "free" ? t.joinTabFree : t.joinTabPro}
                 </button>
               ))}
             </div>
@@ -441,7 +445,7 @@ function Enroll() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your name (optional)"
+              placeholder={t.joinName}
               maxLength={100}
               className="rounded-md border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
             />
@@ -450,7 +454,7 @@ function Enroll() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@email.com"
+              placeholder={t.joinEmail}
               maxLength={255}
               className="rounded-md border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
             />
@@ -458,7 +462,7 @@ function Enroll() {
               type="submit"
               className="mt-2 rounded-md bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90"
             >
-              Send to Afnan →
+              {t.joinSend}
             </button>
           </form>
         )}
