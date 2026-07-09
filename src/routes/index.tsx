@@ -253,7 +253,7 @@ function FAQ() {
 
 function ChatSection() {
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: "As-salamu alaykum — I'm the Afnan Sales Academy assistant. Ask me anything about halal sales, our courses, or investing in the business." },
+    { role: "assistant", content: "Hi — I'm the Afnan Sales Academy assistant. Ask me anything about sales, our courses, or investing in the business. (As-salamu alaykum if you're Muslim — everyone's welcome here.)" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
