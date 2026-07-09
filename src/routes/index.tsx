@@ -267,7 +267,7 @@ function ChatSection() {
         <div className="mb-8 text-center">
           <div className="text-xs uppercase tracking-[0.3em] text-primary">Ask Anything</div>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">Talk to the Academy AI</h2>
-          <p className="mt-3 text-muted-foreground">Get instant answers about sales, our programs, or how to invest.</p>
+          <p className="mt-3 text-muted-foreground">Instant answers on halal sales, our programs, or how to invest.</p>
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
