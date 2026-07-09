@@ -55,14 +55,14 @@ function Hero() {
       <div className="mx-auto max-w-4xl px-6 py-24 text-center md:py-32">
         <span className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs uppercase tracking-widest text-primary">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-          Free & Paid Programs
+          Halal Sales Training · By Muslims, For Muslims
         </span>
         <h1 className="font-display text-5xl leading-[0.95] md:text-7xl">
-          LEARN <span className="text-gradient">SALES</span>.<br />
-          BUILD <span className="text-gradient">BUSINESS</span>.
+          HALAL <span className="text-gradient">SALES</span>.<br />
+          BARAKAH <span className="text-gradient">BUSINESS</span>.
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-          Practical sales training by Afnan. Start free, upgrade when you're ready, or invest in the growth of the academy.
+          As-salamu alaykum. Learn ethical sales and business the halal way — with sidq, amanah, and zero riba. Free lessons, live coaching, and a global ummah of closers.
         </p>
       </div>
     </section>
@@ -73,22 +73,22 @@ function Tiers() {
   return (
     <section id="tiers" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 text-center">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary">Two Ways to Learn</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your path</h2>
+        <div className="text-xs uppercase tracking-[0.3em] text-primary">Two Halal Paths</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your path, insha'Allah</h2>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         {/* Free */}
         <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Free</div>
           <div className="mt-2 font-display text-4xl">Starter</div>
-          <div className="mt-1 text-sm text-muted-foreground">Everything you need to begin — $0 forever.</div>
+          <div className="mt-1 text-sm text-muted-foreground">Halal sales fundamentals — $0 forever.</div>
           <ul className="mt-6 space-y-3 text-sm">
             {[
-              "Weekly sales newsletter",
-              "Full YouTube video library",
-              "Cold email & DM script pack (PDF)",
-              "Access to the public Discord community",
-              "Live monthly Q&A stream",
+              "Weekly halal sales newsletter",
+              "Full YouTube library (Muslim-friendly examples)",
+              "Halal cold email & DM script pack (PDF)",
+              "Brothers & sisters Discord community",
+              "Live monthly Q&A with Afnan",
             ].map((f) => (
               <li key={f} className="flex gap-3">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-muted-foreground" />
@@ -114,11 +114,11 @@ function Tiers() {
           <ul className="mt-6 space-y-3 text-sm">
             {[
               "Everything in Starter",
-              "Full course library (60+ hours)",
+              "Full course library (60+ hours, halal-only frameworks)",
               "Weekly live coaching with Afnan",
-              "Private mastermind community",
+              "Private Muslim entrepreneurs mastermind",
               "1:1 pitch & call reviews",
-              "Objection & closing script vault",
+              "Objection & closing script vault (riba-free offers)",
             ].map((f) => (
               <li key={f} className="flex gap-3">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-primary shadow-glow" />
@@ -140,39 +140,49 @@ function FAQ() {
 
   const questions = [
     {
+      id: "halal",
+      q: "Is everything you teach halal?",
+      a: "Yes. Every framework is built around sidq (truthfulness) and amanah (trust). We don't teach pressure tactics, deception, or how to sell haram products. If a technique compromises your deen, we don't teach it.",
+    },
+    {
+      id: "non-muslim",
+      q: "I'm not Muslim — can I still join?",
+      a: "Of course. The academy is built for Muslims but everyone is welcome. The sales frameworks are universal; the values-first approach just happens to be rooted in Islamic ethics.",
+    },
+    {
       id: "free-cost",
       q: "Is the Free Starter plan really free?",
-      a: "Yes. The Starter plan is $0 forever. You get the weekly newsletter, public YouTube lessons, a cold outreach script pack, and access to the community Discord.",
+      a: "Yes, $0 forever. You get the weekly newsletter, YouTube lessons, a halal cold outreach script pack, and the community Discord.",
     },
     {
       id: "pro-includes",
       q: "What do I get with Pro Mentorship?",
-      a: "Pro includes the full course library, weekly live coaching with Afnan, a private mastermind, 1:1 pitch reviews, and the complete script vault. You can pay $197/month or $1,497 one-time for lifetime access.",
+      a: "The full course library, weekly live coaching with Afnan, a private Muslim entrepreneurs mastermind, 1:1 pitch reviews, and the complete script vault. $197/month or $1,497 one-time for lifetime access.",
     },
     {
-      id: "switch-tiers",
-      q: "Can I start free and upgrade to Pro later?",
-      a: "Absolutely. Many students start on the free plan and upgrade once they're ready for live coaching and direct feedback.",
+      id: "riba",
+      q: "Do you teach anything involving riba or haram industries?",
+      a: "No. We explicitly avoid riba-based financing offers, gambling, alcohol, and other haram niches. If your product is halal, we'll help you sell it with excellence.",
     },
     {
       id: "who-teaches",
       q: "Who teaches the lessons and runs the calls?",
-      a: "Afnan leads the live coaching and core curriculum. He is supported by a team of specialized coaches for outreach, closing, community, and operations.",
+      a: "Afnan leads the live coaching and curriculum, supported by a team of Muslim coaches for outreach, closing, community, and operations.",
     },
     {
       id: "time-commitment",
       q: "How much time do I need each week?",
-      a: "Free students can follow along at their own pace. Pro students get the most value from 3-5 hours per week including live calls, practice, and lesson time.",
+      a: "Free students learn at their own pace. Pro students get the most value from 3-5 hours per week — live calls, practice, and lesson time, arranged around salah.",
     },
     {
       id: "refund",
       q: "Is there a refund policy for Pro?",
-      a: "Yes. If Pro isn't the right fit, contact us within 14 days of joining for a full refund. No hard feelings.",
+      a: "Yes. If Pro isn't the right fit, contact us within 14 days for a full refund. No hard feelings.",
     },
     {
       id: "invest",
-      q: "Can I invest in Afnan Sales Academy?",
-      a: "Yes. We're open to angel checks and strategic partners. Minimum ticket is $5,000 via a SAFE post-money agreement. Email invest@afnansales.com with your background and ticket size.",
+      q: "Can I invest in the academy?",
+      a: "Yes. We're open to Muslim angels and strategic partners. Minimum ticket is $5,000 via a riba-free equity SAFE. Email invest@afnansales.com with your background and ticket size.",
     },
   ];
 
@@ -213,7 +223,7 @@ function FAQ() {
 
 function ChatSection() {
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: "Hey — I'm the Afnan Sales Academy assistant. Ask me anything about sales, the courses, or investing in the business." },
+    { role: "assistant", content: "As-salamu alaykum — I'm the Afnan Sales Academy assistant. Ask me anything about halal sales, our courses, or investing in the business." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -257,7 +267,7 @@ function ChatSection() {
         <div className="mb-8 text-center">
           <div className="text-xs uppercase tracking-[0.3em] text-primary">Ask Anything</div>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">Talk to the Academy AI</h2>
-          <p className="mt-3 text-muted-foreground">Get instant answers about sales, our programs, or how to invest.</p>
+          <p className="mt-3 text-muted-foreground">Instant answers on halal sales, our programs, or how to invest.</p>
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
@@ -317,15 +327,15 @@ function Invest() {
         <div className="text-xs uppercase tracking-[0.3em] text-primary">Investors</div>
         <h2 className="mt-3 font-display text-4xl md:text-5xl">Invest in Afnan Sales Academy</h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          We're growing fast — thousands of students, expanding courses, and building a full sales-training platform.
-          If you'd like to back the business, we're open to angel checks and strategic partners.
+          Insha'Allah we're growing fast — thousands of Muslim students, expanding courses, and building the world's leading halal sales training platform.
+          If you'd like to back the business, we welcome Muslim angels and strategic partners on a riba-free structure.
         </p>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
             { label: "Min ticket", value: "$5,000" },
-            { label: "Round", value: "SAFE (post-money)" },
-            { label: "Use of funds", value: "Content, engineering, growth" },
+            { label: "Structure", value: "Equity SAFE (riba-free)" },
+            { label: "Use of funds", value: "Content, engineering, ummah growth" },
           ].map((s) => (
             <div key={s.label} className="rounded-xl border border-border bg-background p-5">
               <div className="text-xs uppercase tracking-widest text-muted-foreground">{s.label}</div>
@@ -371,7 +381,7 @@ function Enroll() {
     <section id="join" className="bg-hero border-t border-border">
       <div className="mx-auto max-w-2xl px-6 py-20 text-center">
         <div className="text-xs uppercase tracking-[0.3em] text-primary">Contact Afnan</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">Get started today</h2>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">Bismillah — let's begin</h2>
         <p className="mt-3 text-muted-foreground">Choose your plan and Afnan will personally send you the next steps.</p>
 
         {sent ? (
@@ -435,32 +445,38 @@ function Team() {
     {
       name: "Afnan",
       role: "Founder & Lead Instructor",
-      bio: "8+ years closing high-ticket. Leads the weekly coaching calls and the core curriculum.",
+      bio: "8+ years closing high-ticket B2B. Leads weekly coaching and the halal sales curriculum.",
       initials: "AF",
     },
     {
+      name: "Ustadh Yusuf Rahman",
+      role: "Islamic Ethics Advisor",
+      bio: "Reviews every framework and script to make sure our teaching stays within the bounds of the Shariah.",
+      initials: "YR",
+    },
+    {
       name: "Sara Malik",
-      role: "Head Coach — Cold Outreach",
-      bio: "Ex-SDR leader. Runs the outbound track: cold email, LinkedIn, and DM frameworks.",
+      role: "Head Coach — Halal Cold Outreach",
+      bio: "Ex-SDR leader. Runs the outbound track: honest cold email, LinkedIn, and DM frameworks.",
       initials: "SM",
     },
     {
-      name: "Daniel Reyes",
+      name: "Bilal Hassan",
       role: "Closing Coach",
-      bio: "Reviews student call recordings and teaches the objection-handling scripts.",
-      initials: "DR",
+      bio: "Reviews student call recordings and teaches the objection-handling scripts — no pressure tactics, ever.",
+      initials: "BH",
     },
     {
-      name: "Priya Shah",
-      role: "Community & Student Success",
-      bio: "Runs the Discord, answers questions daily, and matches you with the right resources.",
-      initials: "PS",
+      name: "Aisha Siddiqui",
+      role: "Sisters Community Lead",
+      bio: "Runs the sisters-only track and Discord channels so every sister gets tailored support.",
+      initials: "AS",
     },
     {
-      name: "Marcus Lee",
+      name: "Omar Farooq",
       role: "Business & Operations",
-      bio: "Handles onboarding, billing, and partnerships so the coaches can focus on teaching.",
-      initials: "ML",
+      bio: "Handles onboarding, billing (riba-free), and partnerships so the coaches can focus on teaching.",
+      initials: "OF",
     },
     {
       name: "Zoya Ahmed",
@@ -474,9 +490,9 @@ function Team() {
     <section id="team" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 text-center">
         <div className="text-xs uppercase tracking-[0.3em] text-primary">The Team</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">You're not learning from one person</h2>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">A team of Muslims teaching Muslims</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Afnan leads, but a full team of coaches and operators helps every student get answers, feedback, and support.
+          Afnan leads, but a full team of coaches, a Shariah advisor, and operators helps every student get answers, feedback, and support.
         </p>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -505,7 +521,7 @@ function Team() {
 function Footer() {
   return (
     <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
-      © {new Date().getFullYear()} Afnan Sales Academy. Built for closers.
+      © {new Date().getFullYear()} Afnan Sales Academy. Halal sales, built for the ummah.
     </footer>
   );
 }
