@@ -73,8 +73,8 @@ function Tiers() {
   return (
     <section id="tiers" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 text-center">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary">Two Ways to Learn</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your path</h2>
+        <div className="text-xs uppercase tracking-[0.3em] text-primary">Two Halal Paths</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your path, insha'Allah</h2>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         {/* Free */}
