@@ -445,32 +445,38 @@ function Team() {
     {
       name: "Afnan",
       role: "Founder & Lead Instructor",
-      bio: "8+ years closing high-ticket. Leads the weekly coaching calls and the core curriculum.",
+      bio: "8+ years closing high-ticket B2B. Leads weekly coaching and the halal sales curriculum.",
       initials: "AF",
     },
     {
+      name: "Ustadh Yusuf Rahman",
+      role: "Islamic Ethics Advisor",
+      bio: "Reviews every framework and script to make sure our teaching stays within the bounds of the Shariah.",
+      initials: "YR",
+    },
+    {
       name: "Sara Malik",
-      role: "Head Coach — Cold Outreach",
-      bio: "Ex-SDR leader. Runs the outbound track: cold email, LinkedIn, and DM frameworks.",
+      role: "Head Coach — Halal Cold Outreach",
+      bio: "Ex-SDR leader. Runs the outbound track: honest cold email, LinkedIn, and DM frameworks.",
       initials: "SM",
     },
     {
-      name: "Daniel Reyes",
+      name: "Bilal Hassan",
       role: "Closing Coach",
-      bio: "Reviews student call recordings and teaches the objection-handling scripts.",
-      initials: "DR",
+      bio: "Reviews student call recordings and teaches the objection-handling scripts — no pressure tactics, ever.",
+      initials: "BH",
     },
     {
-      name: "Priya Shah",
-      role: "Community & Student Success",
-      bio: "Runs the Discord, answers questions daily, and matches you with the right resources.",
-      initials: "PS",
+      name: "Aisha Siddiqui",
+      role: "Sisters Community Lead",
+      bio: "Runs the sisters-only track and Discord channels so every sister gets tailored support.",
+      initials: "AS",
     },
     {
-      name: "Marcus Lee",
+      name: "Omar Farooq",
       role: "Business & Operations",
-      bio: "Handles onboarding, billing, and partnerships so the coaches can focus on teaching.",
-      initials: "ML",
+      bio: "Handles onboarding, billing (riba-free), and partnerships so the coaches can focus on teaching.",
+      initials: "OF",
     },
     {
       name: "Zoya Ahmed",
@@ -484,9 +490,9 @@ function Team() {
     <section id="team" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 text-center">
         <div className="text-xs uppercase tracking-[0.3em] text-primary">The Team</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">You're not learning from one person</h2>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">A team of Muslims teaching Muslims</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Afnan leads, but a full team of coaches and operators helps every student get answers, feedback, and support.
+          Afnan leads, but a full team of coaches, a Shariah advisor, and operators helps every student get answers, feedback, and support.
         </p>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
