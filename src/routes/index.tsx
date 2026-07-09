@@ -100,21 +100,24 @@ function Tiers() {
   return (
     <section id="tiers" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 text-center">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary">Two Halal Paths</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your path, insha'Allah</h2>
+        <div className="text-xs uppercase tracking-[0.3em] text-primary">Two Paths</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your path</h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+          Ethical sales training — rooted in Islamic values, open to everyone.
+        </p>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         {/* Free */}
         <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Free</div>
           <div className="mt-2 font-display text-4xl">Starter</div>
-          <div className="mt-1 text-sm text-muted-foreground">Halal sales fundamentals — $0 forever.</div>
+          <div className="mt-1 text-sm text-muted-foreground">Ethical sales fundamentals — $0 forever.</div>
           <ul className="mt-6 space-y-3 text-sm">
             {[
-              "Weekly halal sales newsletter",
-              "Full YouTube library (Muslim-friendly examples)",
-              "Halal cold email & DM script pack (PDF)",
-              "Brothers & sisters Discord community",
+              "Weekly sales newsletter",
+              "Full YouTube library",
+              "Cold email & DM script pack (PDF)",
+              "Global Discord community",
               "Live monthly Q&A with Afnan",
             ].map((f) => (
               <li key={f} className="flex gap-3">
@@ -141,11 +144,11 @@ function Tiers() {
           <ul className="mt-6 space-y-3 text-sm">
             {[
               "Everything in Starter",
-              "Full course library (60+ hours, halal-only frameworks)",
+              "Full course library (60+ hours)",
               "Weekly live coaching with Afnan",
-              "Private Muslim entrepreneurs mastermind",
+              "Private founders mastermind",
               "1:1 pitch & call reviews",
-              "Objection & closing script vault (riba-free offers)",
+              "Objection & closing script vault",
             ].map((f) => (
               <li key={f} className="flex gap-3">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-primary shadow-glow" />
