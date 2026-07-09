@@ -521,7 +521,7 @@ function Team() {
 function Footer() {
   return (
     <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
-      © {new Date().getFullYear()} Afnan Sales Academy. Built for closers.
+      © {new Date().getFullYear()} Afnan Sales Academy. Halal sales, built for the ummah.
     </footer>
   );
 }
