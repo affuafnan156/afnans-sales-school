@@ -114,11 +114,11 @@ function Tiers() {
           <ul className="mt-6 space-y-3 text-sm">
             {[
               "Everything in Starter",
-              "Full course library (60+ hours)",
+              "Full course library (60+ hours, halal-only frameworks)",
               "Weekly live coaching with Afnan",
-              "Private mastermind community",
+              "Private Muslim entrepreneurs mastermind",
               "1:1 pitch & call reviews",
-              "Objection & closing script vault",
+              "Objection & closing script vault (riba-free offers)",
             ].map((f) => (
               <li key={f} className="flex gap-3">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-primary shadow-glow" />
