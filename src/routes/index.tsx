@@ -27,23 +27,46 @@ function Index() {
 }
 
 function Nav() {
+  const { t, region, setRegion, lang, setLang } = useI18n();
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-4">
         <a href="#top" className="flex items-center gap-2 font-display text-2xl">
           <span className="inline-block h-3 w-3 rounded-full bg-primary shadow-glow" />
           AFNAN <span className="text-primary">SALES</span>
         </a>
         <div className="hidden gap-8 text-sm md:flex">
-          <a href="#tiers" className="text-muted-foreground hover:text-foreground">Learn</a>
-          <a href="#faq" className="text-muted-foreground hover:text-foreground">FAQ</a>
-          <a href="#ask" className="text-muted-foreground hover:text-foreground">Ask AI</a>
-          <a href="#invest" className="text-muted-foreground hover:text-foreground">Invest</a>
-          <a href="#join" className="text-muted-foreground hover:text-foreground">Contact</a>
+          <a href="#tiers" className="text-muted-foreground hover:text-foreground">{t.navLearn}</a>
+          <a href="#faq" className="text-muted-foreground hover:text-foreground">{t.navFaq}</a>
+          <a href="#ask" className="text-muted-foreground hover:text-foreground">{t.navAsk}</a>
+          <a href="#invest" className="text-muted-foreground hover:text-foreground">{t.navInvest}</a>
+          <a href="#join" className="text-muted-foreground hover:text-foreground">{t.navContact}</a>
         </div>
-        <a href="#tiers" className="rounded-md bg-gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90">
-          Start Learning
-        </a>
+        <div className="flex items-center gap-2">
+          <select
+            aria-label={t.regionLabel}
+            value={region.code}
+            onChange={(e) => setRegion(e.target.value as RegionCode)}
+            className="rounded-md border border-border bg-background px-2 py-1.5 text-xs outline-none focus:border-primary"
+          >
+            {REGIONS.map((r) => (
+              <option key={r.code} value={r.code}>{r.flag} {r.label}</option>
+            ))}
+          </select>
+          <select
+            aria-label={t.languageLabel}
+            value={lang}
+            onChange={(e) => setLang(e.target.value as LangCode)}
+            className="rounded-md border border-border bg-background px-2 py-1.5 text-xs outline-none focus:border-primary"
+          >
+            {LANGUAGES.map((l) => (
+              <option key={l.code} value={l.code}>{l.label}</option>
+            ))}
+          </select>
+          <a href="#tiers" className="hidden rounded-md bg-gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 sm:inline-block">
+            {t.ctaStart}
+          </a>
+        </div>
       </nav>
     </header>
   );
