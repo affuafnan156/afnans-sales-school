@@ -357,15 +357,15 @@ function Invest() {
         <div className="text-xs uppercase tracking-[0.3em] text-primary">Investors</div>
         <h2 className="mt-3 font-display text-4xl md:text-5xl">Invest in Afnan Sales Academy</h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          Insha'Allah we're growing fast — thousands of Muslim students, expanding courses, and building the world's leading halal sales training platform.
-          If you'd like to back the business, we welcome Muslim angels and strategic partners on a riba-free structure.
+          We're growing fast — thousands of students worldwide, expanding courses, and building a leading ethical sales training platform.
+          If you'd like to back the business, we welcome angels and strategic partners. Interest-free (riba-free) structures are available for investors who prefer them.
         </p>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
             { label: "Min ticket", value: "$5,000" },
-            { label: "Structure", value: "Equity SAFE (riba-free)" },
-            { label: "Use of funds", value: "Content, engineering, ummah growth" },
+            { label: "Structure", value: "Equity SAFE (riba-free option available)" },
+            { label: "Use of funds", value: "Content, engineering, global community" },
           ].map((s) => (
             <div key={s.label} className="rounded-xl border border-border bg-background p-5">
               <div className="text-xs uppercase tracking-widest text-muted-foreground">{s.label}</div>
