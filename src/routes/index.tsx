@@ -381,7 +381,7 @@ function Enroll() {
     <section id="join" className="bg-hero border-t border-border">
       <div className="mx-auto max-w-2xl px-6 py-20 text-center">
         <div className="text-xs uppercase tracking-[0.3em] text-primary">Contact Afnan</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl">Get started today</h2>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">Bismillah — let's begin</h2>
         <p className="mt-3 text-muted-foreground">Choose your plan and Afnan will personally send you the next steps.</p>
 
         {sent ? (
