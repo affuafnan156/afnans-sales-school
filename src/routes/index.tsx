@@ -6,6 +6,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const ACADEMY_EMAIL = "affuafnan156@gmail.com";
 const INVEST_EMAIL = "invest@afnansales.com";
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -402,9 +403,9 @@ function Enroll() {
     if (!email) return;
     const subject = encodeURIComponent(`New ${tier === "free" ? "Free" : "Pro"} signup (${region.code}): ${name || email}`);
     const body = encodeURIComponent(
-      `As-salamu alaykum ${region.instructorName},\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nRegion: ${region.label}\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
+      `As-salamu alaykum team,\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nRegion: ${region.label}\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
     );
-    window.location.href = `mailto:${region.instructorEmail}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${ACADEMY_EMAIL}?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
@@ -415,7 +416,7 @@ function Enroll() {
         <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.joinTitle}</h2>
         <p className="mt-3 text-muted-foreground">{t.joinSub}</p>
         <p className="mt-2 text-sm text-primary">
-          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label} · {region.instructorEmail}
+          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label} · {ACADEMY_EMAIL}
         </p>
 
         {sent ? (
