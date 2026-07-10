@@ -403,9 +403,9 @@ function Enroll() {
     if (!email) return;
     const subject = encodeURIComponent(`New ${tier === "free" ? "Free" : "Pro"} signup (${region.code}): ${name || email}`);
     const body = encodeURIComponent(
-      `As-salamu alaykum ${region.instructorName},\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nRegion: ${region.label}\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
+      `As-salamu alaykum team,\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nRegion: ${region.label}\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
     );
-    window.location.href = `mailto:${region.instructorEmail}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${ACADEMY_EMAIL}?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
