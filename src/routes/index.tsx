@@ -397,16 +397,38 @@ function Enroll() {
   const [name, setName] = useState("");
   const [tier, setTier] = useState<"free" | "pro">("free");
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    const subject = encodeURIComponent(`New ${tier === "free" ? "Free" : "Pro"} signup (${region.code}): ${name || email}`);
-    const body = encodeURIComponent(
-      `As-salamu alaykum team,\n\nNew signup for the ${tier === "free" ? "Starter (Free)" : "Pro Mentorship"} plan.\n\nRegion: ${region.label}\nName: ${name || "(not provided)"}\nEmail: ${email}\n\n— Sent from afnansales.com`,
-    );
-    window.location.href = `mailto:${ACADEMY_EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
+    if (!email || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/enroll", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: "enroll",
+          name,
+          email,
+          tier: tier === "free" ? "Starter (Free)" : "Pro Mentorship",
+          region: `${region.flag} ${region.label}`,
+          instructor: region.instructorName,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({ error: "Something went wrong." }));
+        setError(data.error || "Something went wrong.");
+      } else {
+        setSent(true);
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -416,14 +438,16 @@ function Enroll() {
         <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.joinTitle}</h2>
         <p className="mt-3 text-muted-foreground">{t.joinSub}</p>
         <p className="mt-2 text-sm text-primary">
-          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label} · {ACADEMY_EMAIL}
+          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label}
         </p>
 
         {sent ? (
           <div className="mx-auto mt-8 rounded-xl border border-primary/40 bg-card p-8 shadow-glow">
             <div className="font-display text-2xl text-primary">{t.joinSent}</div>
-            <p className="mt-2 text-sm text-muted-foreground">{t.joinSentSub}</p>
-            <button onClick={() => setSent(false)} className="mt-6 text-xs uppercase tracking-widest text-primary hover:underline">
+            <p className="mt-2 text-sm text-muted-foreground">
+              Your details were sent straight to the team. We'll reach out shortly.
+            </p>
+            <button onClick={() => { setSent(false); setEmail(""); setName(""); }} className="mt-6 text-xs uppercase tracking-widest text-primary hover:underline">
               {t.joinAgain}
             </button>
           </div>
@@ -462,11 +486,13 @@ function Enroll() {
               maxLength={255}
               className="rounded-md border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
             />
+            {error && <p className="text-sm text-primary">{error}</p>}
             <button
               type="submit"
-              className="mt-2 rounded-md bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90"
+              disabled={loading}
+              className="mt-2 rounded-md bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 disabled:opacity-50"
             >
-              {t.joinSend}
+              {loading ? "Sending…" : t.joinSend}
             </button>
           </form>
         )}
@@ -474,6 +500,7 @@ function Enroll() {
     </section>
   );
 }
+
 
 function Team() {
   const people = [
