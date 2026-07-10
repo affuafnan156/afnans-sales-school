@@ -6,6 +6,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const ACADEMY_EMAIL = "affuafnan156@gmail.com";
 const INVEST_EMAIL = "invest@afnansales.com";
 
 type Msg = { role: "user" | "assistant"; content: string };
