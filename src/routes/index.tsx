@@ -416,7 +416,7 @@ function Enroll() {
         <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.joinTitle}</h2>
         <p className="mt-3 text-muted-foreground">{t.joinSub}</p>
         <p className="mt-2 text-sm text-primary">
-          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label} · {region.instructorEmail}
+          {t.assignedTo}: <strong>{region.instructorName}</strong> · {region.flag} {region.label} · {ACADEMY_EMAIL}
         </p>
 
         {sent ? (
