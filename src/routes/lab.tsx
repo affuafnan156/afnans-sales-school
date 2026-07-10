@@ -57,7 +57,8 @@ function Lab() {
         body: JSON.stringify({ messages: next, mode: "roleplay", personality }),
       });
       if (!res.ok) {
-        setMessages((m) => [...m, { role: "assistant", content: `⚠️ ${await res.text()}` }]);
+        const errText = await res.text();
+        setMessages((m) => [...m, { role: "assistant", content: `⚠️ ${errText}` }]);
       } else {
         const data = (await res.json()) as { reply: string };
         setMessages((m) => [...m, { role: "assistant", content: data.reply }]);
