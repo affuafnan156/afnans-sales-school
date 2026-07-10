@@ -9,10 +9,46 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ScriptsRouteImport } from './routes/scripts'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as LabRouteImport } from './routes/lab'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ArcadeRouteImport } from './routes/arcade'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiEnrollRouteImport } from './routes/api/enroll'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
+const ScriptsRoute = ScriptsRouteImport.update({
+  id: '/scripts',
+  path: '/scripts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabRoute = LabRouteImport.update({
+  id: '/lab',
+  path: '/lab',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArcadeRoute = ArcadeRouteImport.update({
+  id: '/arcade',
+  path: '/arcade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,36 +67,130 @@ const ApiChatRoute = ApiChatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/arcade': typeof ArcadeRoute
+  '/dashboard': typeof DashboardRoute
+  '/lab': typeof LabRoute
+  '/profile': typeof ProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/scripts': typeof ScriptsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/arcade': typeof ArcadeRoute
+  '/dashboard': typeof DashboardRoute
+  '/lab': typeof LabRoute
+  '/profile': typeof ProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/scripts': typeof ScriptsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/arcade': typeof ArcadeRoute
+  '/dashboard': typeof DashboardRoute
+  '/lab': typeof LabRoute
+  '/profile': typeof ProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/scripts': typeof ScriptsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/chat' | '/api/enroll'
+  fullPaths:
+    | '/'
+    | '/arcade'
+    | '/dashboard'
+    | '/lab'
+    | '/profile'
+    | '/roadmap'
+    | '/scripts'
+    | '/api/chat'
+    | '/api/enroll'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/chat' | '/api/enroll'
-  id: '__root__' | '/' | '/api/chat' | '/api/enroll'
+  to:
+    | '/'
+    | '/arcade'
+    | '/dashboard'
+    | '/lab'
+    | '/profile'
+    | '/roadmap'
+    | '/scripts'
+    | '/api/chat'
+    | '/api/enroll'
+  id:
+    | '__root__'
+    | '/'
+    | '/arcade'
+    | '/dashboard'
+    | '/lab'
+    | '/profile'
+    | '/roadmap'
+    | '/scripts'
+    | '/api/chat'
+    | '/api/enroll'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArcadeRoute: typeof ArcadeRoute
+  DashboardRoute: typeof DashboardRoute
+  LabRoute: typeof LabRoute
+  ProfileRoute: typeof ProfileRoute
+  RoadmapRoute: typeof RoadmapRoute
+  ScriptsRoute: typeof ScriptsRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiEnrollRoute: typeof ApiEnrollRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/scripts': {
+      id: '/scripts'
+      path: '/scripts'
+      fullPath: '/scripts'
+      preLoaderRoute: typeof ScriptsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lab': {
+      id: '/lab'
+      path: '/lab'
+      fullPath: '/lab'
+      preLoaderRoute: typeof LabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/arcade': {
+      id: '/arcade'
+      path: '/arcade'
+      fullPath: '/arcade'
+      preLoaderRoute: typeof ArcadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +217,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArcadeRoute: ArcadeRoute,
+  DashboardRoute: DashboardRoute,
+  LabRoute: LabRoute,
+  ProfileRoute: ProfileRoute,
+  RoadmapRoute: RoadmapRoute,
+  ScriptsRoute: ScriptsRoute,
   ApiChatRoute: ApiChatRoute,
   ApiEnrollRoute: ApiEnrollRoute,
 }
