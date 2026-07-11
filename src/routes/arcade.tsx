@@ -173,40 +173,6 @@ function PitchBattle() {
   );
 }
 
-function ObjectionWeek() {
-  const { addXp } = useProgress();
-  const week = Math.floor(Date.now() / (7 * 86400000));
-  const objections = [
-    "'Your price is way too high for what this is.'",
-    "'I don't trust online courses — most are scams.'",
-    "'I don't have the time to learn this right now.'",
-    "'I already tried something like this and it didn't work.'",
-    "'Let me talk to my partner and I'll get back to you.'",
-  ];
-  const o = objections[week % objections.length];
-  const [ans, setAns] = useState("");
-  const [done, setDone] = useState(false);
-  return (
-    <Card>
-      <div className="text-xs uppercase tracking-widest text-primary">This week's objection</div>
-      <div className="mt-2 font-display text-2xl">{o}</div>
-      <textarea
-        value={ans}
-        onChange={(e) => setAns(e.target.value)}
-        rows={4}
-        className="mt-4 w-full rounded-md border border-border bg-background p-3 text-sm outline-none focus:border-primary"
-        placeholder="Your honest response…"
-      />
-      <button
-        disabled={ans.length < 30 || done}
-        onClick={() => { addXp(25, "Objection of the Week"); setDone(true); }}
-        className="mt-3 rounded-md bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow disabled:opacity-40"
-      >
-        {done ? "Submitted ✓" : "Submit (+25 XP)"}
-      </button>
-    </Card>
-  );
-}
 
 function MythBusters() {
   const { addXp } = useProgress();
