@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useProgress } from "@/lib/progress";
+import { useTheme } from "@/lib/theme";
 
 const LINKS: { to: string; label: string }[] = [
   { to: "/", label: "Home" },
@@ -7,12 +8,12 @@ const LINKS: { to: string; label: string }[] = [
   { to: "/roadmap", label: "Roadmap" },
   { to: "/lab", label: "Sales Lab" },
   { to: "/arcade", label: "Arcade" },
-  { to: "/scripts", label: "Scripts" },
   { to: "/profile", label: "Profile" },
 ];
 
 export function AppNav() {
   const { p } = useProgress();
+  const { theme, toggle } = useTheme();
   const tierBadge =
     p.unlockedTier === "pro" ? "PRO" : p.unlockedTier === "free" ? "FREE" : "GUEST";
   return (
@@ -35,6 +36,15 @@ export function AppNav() {
           ))}
         </div>
         <div className="flex items-center gap-2 text-xs">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label="Toggle theme"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="rounded-md border border-border bg-card px-2 py-1 hover:border-primary/60"
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
           <span className="rounded-md border border-border bg-card px-2 py-1">
             Lv <strong className="text-primary">{p.level}</strong> · {p.xp} XP
           </span>

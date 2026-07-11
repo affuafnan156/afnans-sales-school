@@ -131,7 +131,7 @@ function Dashboard() {
             <div className="flex flex-wrap gap-2 text-xs">
               <QuickLink to="/lab" label="🎤 Practice a pitch" />
               <QuickLink to="/arcade" label="🎮 Play a game" />
-              <QuickLink to="/scripts" label="📄 Script library" />
+              
               <QuickLink to="/profile" label="🎯 Set age & goal" />
             </div>
           </Card>

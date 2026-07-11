@@ -7,17 +7,14 @@ export const Route = createFileRoute("/arcade")({
   head: () => ({
     meta: [
       { title: "Arcade — Sales Games" },
-      { name: "description", content: "Sales Escape Room, Deal of the Day, Pitch Battle, Objection of the Week, Sales Myth Busters, and more." },
+      { name: "description", content: "Pitch Battle, Sales Myth Busters, Reverse Selling, Sales Detective, and Confidence Meter — free sales games." },
     ],
   }),
   component: Arcade,
 });
 
 const GAMES: { id: string; title: string; emoji: string; blurb: string }[] = [
-  { id: "escape", title: "Sales Escape Room", emoji: "🗝️", blurb: "Solve 3 sales riddles to escape. Each right answer unlocks the next room." },
-  { id: "dotd", title: "Deal of the Day", emoji: "📅", blurb: "A new scenario every day. Pick the best move." },
   { id: "pitch", title: "Pitch Battle", emoji: "🥊", blurb: "60 seconds to pitch. Get graded on 3 axes." },
-  { id: "objection", title: "Objection of the Week", emoji: "🛡️", blurb: "One brutal customer objection. Type your best response." },
   { id: "myth", title: "Sales Myth Busters", emoji: "💥", blurb: "True or false? Learn what's actually true about selling." },
   { id: "reverse", title: "Reverse Selling", emoji: "🔄", blurb: "You're the buyer. Notice the pressure tactics the seller uses." },
   { id: "detective", title: "Sales Detective", emoji: "🔍", blurb: "A deal died. Figure out why from the clues." },
@@ -106,10 +103,7 @@ function Arcade() {
 
 function GameHost({ id }: { id: string }) {
   switch (id) {
-    case "escape": return <EscapeRoom />;
-    case "dotd": return <DealOfTheDay />;
     case "pitch": return <PitchBattle />;
-    case "objection": return <ObjectionWeek />;
     case "myth": return <MythBusters />;
     case "reverse": return <ReverseSelling />;
     case "detective": return <Detective />;
@@ -124,101 +118,6 @@ function Card({ children }: { children: React.ReactNode }) {
   return <div className="rounded-2xl border border-border bg-card p-6 shadow-card">{children}</div>;
 }
 
-function EscapeRoom() {
-  const { addXp } = useProgress();
-  const rooms = [
-    {
-      q: "The prospect says 'send me info' after a good call. What's your best move?",
-      choices: [
-        { t: "Send a huge PDF with everything.", ok: false },
-        { t: "Say: 'Happy to — one question first so I only send what's useful.'", ok: true },
-        { t: "Argue and try to close them now.", ok: false },
-      ],
-    },
-    {
-      q: "You quote the price. They go quiet for 6 seconds. Do you…",
-      choices: [
-        { t: "Panic-drop the price.", ok: false },
-        { t: "Stay quiet. Let them think.", ok: true },
-        { t: "Explain why the price is fair for another 90 seconds.", ok: false },
-      ],
-    },
-    {
-      q: "Customer: 'Your competitor is $200 cheaper.'",
-      choices: [
-        { t: "'We're better, trust me.'", ok: false },
-        { t: "'Fair. What matters more to you — the price or the outcome?'", ok: true },
-        { t: "Match the price on the spot.", ok: false },
-      ],
-    },
-  ];
-  const [room, setRoom] = useState(0);
-  const [done, setDone] = useState(false);
-
-  if (done) return <Card>🎉 You escaped! +50 XP</Card>;
-  const r = rooms[room];
-  return (
-    <Card>
-      <div className="text-xs uppercase tracking-widest text-primary">Room {room + 1} / 3</div>
-      <div className="mt-2 font-display text-2xl">{r.q}</div>
-      <div className="mt-4 space-y-2">
-        {r.choices.map((c, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              if (c.ok) {
-                if (room + 1 >= rooms.length) {
-                  setDone(true);
-                  addXp(50, "Escape Room");
-                } else setRoom(room + 1);
-              } else {
-                alert("Not quite — try again.");
-              }
-            }}
-            className="block w-full rounded-md border border-border bg-background px-4 py-3 text-left text-sm hover:border-primary/60"
-          >
-            {c.t}
-          </button>
-        ))}
-      </div>
-    </Card>
-  );
-}
-
-function DealOfTheDay() {
-  const { addXp } = useProgress();
-  const scenarios = [
-    "A prospect ghosted you for 3 weeks. Write a one-line 'break-up' email.",
-    "You have 60 seconds to explain your product to a stranger in an elevator. Write it.",
-    "A hot lead says 'we already have a vendor'. Reply in 2 sentences.",
-    "A friend asks 'why should I buy from you and not the cheaper option?' Answer honestly.",
-    "You just closed a deal. Write the 24-hour thank-you message.",
-  ];
-  const day = new Date().getDate();
-  const s = scenarios[day % scenarios.length];
-  const [ans, setAns] = useState("");
-  const [done, setDone] = useState(false);
-  return (
-    <Card>
-      <div className="text-xs uppercase tracking-widest text-primary">Today's deal</div>
-      <div className="mt-2 font-display text-2xl">{s}</div>
-      <textarea
-        value={ans}
-        onChange={(e) => setAns(e.target.value)}
-        rows={4}
-        className="mt-4 w-full rounded-md border border-border bg-background p-3 text-sm outline-none focus:border-primary"
-        placeholder="Type your reply…"
-      />
-      <button
-        disabled={ans.length < 20 || done}
-        onClick={() => { addXp(20, "Deal of the Day"); setDone(true); }}
-        className="mt-3 rounded-md bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow disabled:opacity-40"
-      >
-        {done ? "Locked in ✓" : "Submit (+20 XP)"}
-      </button>
-    </Card>
-  );
-}
 
 function PitchBattle() {
   const { addXp, bumpSkill } = useProgress();
@@ -274,40 +173,6 @@ function PitchBattle() {
   );
 }
 
-function ObjectionWeek() {
-  const { addXp } = useProgress();
-  const week = Math.floor(Date.now() / (7 * 86400000));
-  const objections = [
-    "'Your price is way too high for what this is.'",
-    "'I don't trust online courses — most are scams.'",
-    "'I don't have the time to learn this right now.'",
-    "'I already tried something like this and it didn't work.'",
-    "'Let me talk to my partner and I'll get back to you.'",
-  ];
-  const o = objections[week % objections.length];
-  const [ans, setAns] = useState("");
-  const [done, setDone] = useState(false);
-  return (
-    <Card>
-      <div className="text-xs uppercase tracking-widest text-primary">This week's objection</div>
-      <div className="mt-2 font-display text-2xl">{o}</div>
-      <textarea
-        value={ans}
-        onChange={(e) => setAns(e.target.value)}
-        rows={4}
-        className="mt-4 w-full rounded-md border border-border bg-background p-3 text-sm outline-none focus:border-primary"
-        placeholder="Your honest response…"
-      />
-      <button
-        disabled={ans.length < 30 || done}
-        onClick={() => { addXp(25, "Objection of the Week"); setDone(true); }}
-        className="mt-3 rounded-md bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow disabled:opacity-40"
-      >
-        {done ? "Submitted ✓" : "Submit (+25 XP)"}
-      </button>
-    </Card>
-  );
-}
 
 function MythBusters() {
   const { addXp } = useProgress();
