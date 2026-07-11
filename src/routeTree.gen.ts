@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ScriptsRouteImport } from './routes/scripts'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LabRouteImport } from './routes/lab'
@@ -19,11 +18,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiEnrollRouteImport } from './routes/api/enroll'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
-const ScriptsRoute = ScriptsRouteImport.update({
-  id: '/scripts',
-  path: '/scripts',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
@@ -72,7 +66,6 @@ export interface FileRoutesByFullPath {
   '/lab': typeof LabRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
-  '/scripts': typeof ScriptsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
@@ -83,7 +76,6 @@ export interface FileRoutesByTo {
   '/lab': typeof LabRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
-  '/scripts': typeof ScriptsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
@@ -95,7 +87,6 @@ export interface FileRoutesById {
   '/lab': typeof LabRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
-  '/scripts': typeof ScriptsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
@@ -108,7 +99,6 @@ export interface FileRouteTypes {
     | '/lab'
     | '/profile'
     | '/roadmap'
-    | '/scripts'
     | '/api/chat'
     | '/api/enroll'
   fileRoutesByTo: FileRoutesByTo
@@ -119,7 +109,6 @@ export interface FileRouteTypes {
     | '/lab'
     | '/profile'
     | '/roadmap'
-    | '/scripts'
     | '/api/chat'
     | '/api/enroll'
   id:
@@ -130,7 +119,6 @@ export interface FileRouteTypes {
     | '/lab'
     | '/profile'
     | '/roadmap'
-    | '/scripts'
     | '/api/chat'
     | '/api/enroll'
   fileRoutesById: FileRoutesById
@@ -142,20 +130,12 @@ export interface RootRouteChildren {
   LabRoute: typeof LabRoute
   ProfileRoute: typeof ProfileRoute
   RoadmapRoute: typeof RoadmapRoute
-  ScriptsRoute: typeof ScriptsRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiEnrollRoute: typeof ApiEnrollRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/scripts': {
-      id: '/scripts'
-      path: '/scripts'
-      fullPath: '/scripts'
-      preLoaderRoute: typeof ScriptsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/roadmap': {
       id: '/roadmap'
       path: '/roadmap'
@@ -222,7 +202,6 @@ const rootRouteChildren: RootRouteChildren = {
   LabRoute: LabRoute,
   ProfileRoute: ProfileRoute,
   RoadmapRoute: RoadmapRoute,
-  ScriptsRoute: ScriptsRoute,
   ApiChatRoute: ApiChatRoute,
   ApiEnrollRoute: ApiEnrollRoute,
 }
