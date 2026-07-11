@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
 
 const ACADEMY_EMAIL = "affuafnan156@gmail.com";
 const INVEST_EMAIL = "invest@afnansales.com";
-const DISCORD_URL = "https://discord.gg/afnansales";
+const DISCORD_URL = "https://discord.gg/fsfPArVRg";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
