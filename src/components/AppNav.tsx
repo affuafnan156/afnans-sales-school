@@ -36,6 +36,15 @@ export function AppNav() {
           ))}
         </div>
         <div className="flex items-center gap-2 text-xs">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label="Toggle theme"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="rounded-md border border-border bg-card px-2 py-1 hover:border-primary/60"
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
           <span className="rounded-md border border-border bg-card px-2 py-1">
             Lv <strong className="text-primary">{p.level}</strong> · {p.xp} XP
           </span>

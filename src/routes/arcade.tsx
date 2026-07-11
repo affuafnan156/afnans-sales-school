@@ -7,17 +7,14 @@ export const Route = createFileRoute("/arcade")({
   head: () => ({
     meta: [
       { title: "Arcade — Sales Games" },
-      { name: "description", content: "Sales Escape Room, Deal of the Day, Pitch Battle, Objection of the Week, Sales Myth Busters, and more." },
+      { name: "description", content: "Pitch Battle, Sales Myth Busters, Reverse Selling, Sales Detective, and Confidence Meter — free sales games." },
     ],
   }),
   component: Arcade,
 });
 
 const GAMES: { id: string; title: string; emoji: string; blurb: string }[] = [
-  { id: "escape", title: "Sales Escape Room", emoji: "🗝️", blurb: "Solve 3 sales riddles to escape. Each right answer unlocks the next room." },
-  { id: "dotd", title: "Deal of the Day", emoji: "📅", blurb: "A new scenario every day. Pick the best move." },
   { id: "pitch", title: "Pitch Battle", emoji: "🥊", blurb: "60 seconds to pitch. Get graded on 3 axes." },
-  { id: "objection", title: "Objection of the Week", emoji: "🛡️", blurb: "One brutal customer objection. Type your best response." },
   { id: "myth", title: "Sales Myth Busters", emoji: "💥", blurb: "True or false? Learn what's actually true about selling." },
   { id: "reverse", title: "Reverse Selling", emoji: "🔄", blurb: "You're the buyer. Notice the pressure tactics the seller uses." },
   { id: "detective", title: "Sales Detective", emoji: "🔍", blurb: "A deal died. Figure out why from the clues." },
@@ -106,10 +103,7 @@ function Arcade() {
 
 function GameHost({ id }: { id: string }) {
   switch (id) {
-    case "escape": return <EscapeRoom />;
-    case "dotd": return <DealOfTheDay />;
     case "pitch": return <PitchBattle />;
-    case "objection": return <ObjectionWeek />;
     case "myth": return <MythBusters />;
     case "reverse": return <ReverseSelling />;
     case "detective": return <Detective />;
