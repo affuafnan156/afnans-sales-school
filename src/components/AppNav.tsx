@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useProgress } from "@/lib/progress";
+import { useTheme } from "@/lib/theme";
 
 const LINKS: { to: string; label: string }[] = [
   { to: "/", label: "Home" },
@@ -7,12 +8,12 @@ const LINKS: { to: string; label: string }[] = [
   { to: "/roadmap", label: "Roadmap" },
   { to: "/lab", label: "Sales Lab" },
   { to: "/arcade", label: "Arcade" },
-  { to: "/scripts", label: "Scripts" },
   { to: "/profile", label: "Profile" },
 ];
 
 export function AppNav() {
   const { p } = useProgress();
+  const { theme, toggle } = useTheme();
   const tierBadge =
     p.unlockedTier === "pro" ? "PRO" : p.unlockedTier === "free" ? "FREE" : "GUEST";
   return (
