@@ -30,7 +30,9 @@ export type Progress = {
   ageGroup: AgeGroup | null;
   goal: Goal | null;
   name: string | null;
-};
+  email: string | null;
+  pendingEnrollment: boolean;
+
 
 const KEY = "afnan_progress_v1";
 
