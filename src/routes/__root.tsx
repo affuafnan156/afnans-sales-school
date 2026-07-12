@@ -127,9 +127,16 @@ function RootComponent() {
         <I18nProvider>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
+          <AutoUnlockRunner />
           <FloatingChat />
         </I18nProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
 }
+
+function AutoUnlockRunner() {
+  useAutoUnlock();
+  return null;
+}
+
