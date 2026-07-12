@@ -14,6 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { I18nProvider } from "../lib/i18n";
 import { ThemeProvider } from "../lib/theme";
 import { FloatingChat } from "../components/FloatingChat";
+import { useAutoUnlock } from "../lib/useAutoUnlock";
+
 
 function NotFoundComponent() {
   return (
