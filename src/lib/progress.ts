@@ -32,7 +32,7 @@ export type Progress = {
   name: string | null;
   email: string | null;
   pendingEnrollment: boolean;
-
+};
 
 const KEY = "afnan_progress_v1";
 
@@ -48,6 +48,8 @@ const DEFAULT: Progress = {
   ageGroup: null,
   goal: null,
   name: null,
+  email: null,
+  pendingEnrollment: false,
 };
 
 function read(): Progress {
