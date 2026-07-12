@@ -15,9 +15,11 @@ import { Route as LabRouteImport } from './routes/lab'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ArcadeRouteImport } from './routes/arcade'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiEnrollRouteImport } from './routes/api/enroll'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
@@ -49,6 +51,10 @@ const ArcadeRoute = ArcadeRouteImport.update({
   path: '/arcade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -64,6 +70,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -73,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/lab': typeof LabRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
@@ -84,18 +96,21 @@ export interface FileRoutesByTo {
   '/lab': typeof LabRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/arcade': typeof ArcadeRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
   '/lab': typeof LabRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
 }
@@ -109,6 +124,7 @@ export interface FileRouteTypes {
     | '/lab'
     | '/profile'
     | '/roadmap'
+    | '/admin'
     | '/api/chat'
     | '/api/enroll'
   fileRoutesByTo: FileRoutesByTo
@@ -120,23 +136,27 @@ export interface FileRouteTypes {
     | '/lab'
     | '/profile'
     | '/roadmap'
+    | '/admin'
     | '/api/chat'
     | '/api/enroll'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/arcade'
     | '/auth'
     | '/dashboard'
     | '/lab'
     | '/profile'
     | '/roadmap'
+    | '/_authenticated/admin'
     | '/api/chat'
     | '/api/enroll'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   ArcadeRoute: typeof ArcadeRoute
   AuthRoute: typeof AuthRoute
   DashboardRoute: typeof DashboardRoute
@@ -191,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArcadeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -212,11 +239,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   ArcadeRoute: ArcadeRoute,
   AuthRoute: AuthRoute,
   DashboardRoute: DashboardRoute,
