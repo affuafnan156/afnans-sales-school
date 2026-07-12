@@ -328,7 +328,11 @@ function Enroll() {
         const data = await res.json().catch(() => ({ error: "Something went wrong." }));
         setError(data.error || "Something went wrong.");
       } else {
-        update({ unlockedTier: form.tier, name: form.name || null });
+        update({
+          email: form.email,
+          name: form.name || null,
+          pendingEnrollment: true,
+        });
         setSent(true);
       }
     } catch {
@@ -345,16 +349,21 @@ function Enroll() {
           <div className="text-xs uppercase tracking-[0.3em] text-primary">{t.joinEyebrow}</div>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.joinTitle}</h2>
           <p className="mt-3 text-muted-foreground text-sm">
-            Send your details and we'll instantly unlock lessons, videos and scripts for you. Your details go straight to <strong className="text-foreground">{ACADEMY_EMAIL}</strong>.
+            Send your details and Afnan will review your request. Once confirmed, your tier
+            unlocks automatically the next time you open this site (usually within a few minutes).
           </p>
         </div>
 
         {sent ? (
           <div className="mt-8 rounded-xl border border-primary/50 bg-card p-8 text-center shadow-glow">
-            <div className="font-display text-3xl text-primary">✅ You're in.</div>
+            <div className="font-display text-3xl text-primary">📩 Details received.</div>
             <p className="mt-3 text-sm text-muted-foreground">
-              Your details were sent to the team. Check your inbox — we'll reach out shortly. Your {form.tier === "pro" ? "Pro" : "Free"} tier is now unlocked in the app.
+              Your submission is now waiting for Afnan to confirm. You'll get an email at{" "}
+              <strong className="text-foreground">{form.email}</strong> the moment your{" "}
+              {form.tier === "pro" ? "Pro" : "Free"} tier is unlocked — and this site will
+              auto-unlock too if you leave it open.
             </p>
+
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               <a href="/dashboard" className="rounded-md bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow">Go to dashboard</a>
               <a href={DISCORD_URL} target="_blank" rel="noreferrer" className="rounded-md border border-border bg-background px-5 py-2 text-sm font-semibold">💬 Join Discord</a>

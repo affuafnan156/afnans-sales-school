@@ -121,6 +121,25 @@ export const Route = createFileRoute("/api/enroll")({
           );
         }
 
+        // Persist the submission so the admin can review + confirm from /admin.
+        try {
+          const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+          const dbTier: "pro" | "invest" | "free" =
+            kind === "invest" ? "invest" : /pro/i.test(tier) ? "pro" : "free";
+          const { error: dbErr } = await supabaseAdmin.from("enrollments").insert({
+            name: name || null,
+            email,
+            tier: dbTier,
+            region: region || null,
+            instructor: instructor || null,
+            message: message || null,
+            kind: kind || "enroll",
+          });
+          if (dbErr) console.error("[enroll] db insert failed:", dbErr);
+        } catch (e) {
+          console.error("[enroll] db insert threw:", e);
+        }
+
         return Response.json({ ok: true });
       },
     },
