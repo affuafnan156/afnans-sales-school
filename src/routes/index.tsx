@@ -198,7 +198,7 @@ function FAQ() {
 
 function ChatSection() {
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: "Hi — I'm the Kai – Your Personal AI Assistant. Ask me anything about sales, our programs, or how to unlock the full course." },
+    { role: "assistant", content: "Hi — I'm Kai – Your Personal AI Assistant. Ask me anything about sales, our programs, or how to unlock the full course." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -241,7 +241,7 @@ function ChatSection() {
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="mb-6 text-center">
           <div className="text-xs uppercase tracking-[0.3em] text-primary">Ask Anything</div>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">Talk to the Academy AI</h2>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">Talk to Kai — Your Personal AI Assistant</h2>
         </div>
         <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
           <div ref={scrollRef} className="max-h-[380px] min-h-[240px] space-y-4 overflow-y-auto p-6">

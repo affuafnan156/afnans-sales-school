@@ -77,7 +77,7 @@ const en: Dict = {
   teamEyebrow: "The Team", teamTitle: "A team that actually shows up", teamSub: "Afnan leads, but a full team of coaches, an ethics advisor, and operators help every student.",
   chatEyebrow: "Ask Anything", chatTitle: "Talk to the Academy AI", chatSub: "Instant answers on sales, our programs, or how to invest.",
   chatPlaceholder: "Ask a question about sales, the course, or investing…", chatSend: "Send",
-  chatGreeting: "Hi — I'm the Kai – Your Personal AI Assistant. Ask me anything about sales, our courses, or investing.",
+  chatGreeting: "Hi — I'm Kai – Your Personal AI Assistant. Ask me anything about sales, our courses, or investing.",
   investEyebrow: "Investors", investTitle: "Invest in SellForge",
   investSub: "We're growing fast. We welcome angels and strategic partners — interest-free (riba-free) structures available for those who prefer them.",
   minTicket: "Min ticket", structure: "Structure", useOfFunds: "Use of funds",
