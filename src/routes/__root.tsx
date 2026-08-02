@@ -82,10 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Afnan Sales Academy — Ethical Sales & Business Training" },
+      { title: "SellForge — Ethical Sales & Business Training" },
       { name: "description", content: "Ethical sales and business training with Afnan. Rooted in Islamic business values, open to everyone. Free lessons, live coaching, global community." },
-      { name: "author", content: "Afnan Sales Academy" },
-      { property: "og:title", content: "Afnan Sales Academy — Ethical Sales Training" },
+      { name: "author", content: "SellForge" },
+      { property: "og:title", content: "SellForge — Ethical Sales Training" },
       { property: "og:description", content: "Learn honest sales and business — free lessons, live coaching, and a global community. Everyone welcome." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

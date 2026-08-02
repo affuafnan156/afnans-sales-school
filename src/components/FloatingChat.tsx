@@ -5,7 +5,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 export function FloatingChat() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: "Hi! I'm the Afnan Sales Academy assistant. Ask me anything about sales, the courses, or how to enroll." },
+    { role: "assistant", content: "Hi! I'm the Kai – Your Personal AI Assistant. Ask me anything about sales, the courses, or how to enroll." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);

@@ -25,7 +25,7 @@ export type Region = {
 };
 
 export const REGIONS: Region[] = [
-  { code: "US", label: "United States",    flag: "🇺🇸", lang: "en", instructorName: "Afnan",          instructorEmail: "afnan@salesacademy.com" },
+  { code: "US", label: "United States",    flag: "🇺🇸", lang: "en", instructorName: "Afnan",          instructorEmail: "kai@sellforge.com" },
   { code: "GB", label: "United Kingdom",   flag: "🇬🇧", lang: "en", instructorName: "Yusuf Ahmed",    instructorEmail: "uk@salesacademy.com" },
   { code: "SA", label: "المملكة العربية السعودية", flag: "🇸🇦", lang: "ar", instructorName: "خالد الحربي", instructorEmail: "ksa@salesacademy.com" },
   { code: "AE", label: "الإمارات",           flag: "🇦🇪", lang: "ar", instructorName: "محمد الفارسي",  instructorEmail: "uae@salesacademy.com" },
@@ -77,11 +77,11 @@ const en: Dict = {
   teamEyebrow: "The Team", teamTitle: "A team that actually shows up", teamSub: "Afnan leads, but a full team of coaches, an ethics advisor, and operators help every student.",
   chatEyebrow: "Ask Anything", chatTitle: "Talk to the Academy AI", chatSub: "Instant answers on sales, our programs, or how to invest.",
   chatPlaceholder: "Ask a question about sales, the course, or investing…", chatSend: "Send",
-  chatGreeting: "Hi — I'm the Afnan Sales Academy assistant. Ask me anything about sales, our courses, or investing.",
-  investEyebrow: "Investors", investTitle: "Invest in Afnan Sales Academy",
+  chatGreeting: "Hi — I'm the Kai – Your Personal AI Assistant. Ask me anything about sales, our courses, or investing.",
+  investEyebrow: "Investors", investTitle: "Invest in SellForge",
   investSub: "We're growing fast. We welcome angels and strategic partners — interest-free (riba-free) structures available for those who prefer them.",
   minTicket: "Min ticket", structure: "Structure", useOfFunds: "Use of funds",
-  emailInvest: "Email invest@afnansales.com", askFirst: "Ask the AI first",
+  emailInvest: "Email invest@sellforge.com", askFirst: "Ask the AI first",
   joinEyebrow: "Contact your regional instructor", joinTitle: "Let's begin",
   joinSub: "Choose your plan and your regional instructor will personally send you the next steps.",
   joinTabFree: "Free Starter", joinTabPro: "Pro Mentorship",
@@ -108,7 +108,7 @@ const ar: Dict = {
   investEyebrow: "المستثمرون", investTitle: "استثمر في أكاديمية أفنان",
   investSub: "إن شاء الله ننمو بسرعة. نرحب بالمستثمرين المسلمين بهيكل خالٍ من الربا.",
   minTicket: "أقل مبلغ", structure: "الهيكل", useOfFunds: "استخدام الأموال",
-  emailInvest: "راسل invest@afnansales.com", askFirst: "اسأل الذكاء أولاً",
+  emailInvest: "راسل invest@sellforge.com", askFirst: "اسأل الذكاء أولاً",
   joinEyebrow: "تواصل مع مدربك الإقليمي", joinTitle: "بسم الله — لنبدأ",
   joinSub: "اختر خطتك وسيرسل لك مدربك الإقليمي الخطوات التالية.",
   joinTabFree: "المبتدئ المجاني", joinTabPro: "الإرشاد الاحترافي",

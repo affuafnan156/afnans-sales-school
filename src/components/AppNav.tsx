@@ -21,7 +21,7 @@ export function AppNav() {
       <nav className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
         <Link to="/" className="flex items-center gap-2 font-display text-xl">
           <span className="inline-block h-3 w-3 rounded-full bg-primary shadow-glow" />
-          AFNAN <span className="text-primary">SALES</span>
+          SELL <span className="text-primary">FORGE</span>
         </Link>
         <div className="flex flex-wrap items-center gap-1 text-xs">
           {LINKS.map((l) => (

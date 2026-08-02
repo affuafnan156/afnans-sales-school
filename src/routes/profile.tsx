@@ -5,7 +5,7 @@ import { useProgress, type AgeGroup, type Goal } from "@/lib/progress";
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: "Your Profile — Afnan Sales Academy" },
+      { title: "Your Profile — SellForge" },
       { name: "description", content: "Pick your age group and goal so we can tailor the game and lessons to you." },
       { name: "robots", content: "noindex" },
     ],

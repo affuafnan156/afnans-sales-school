@@ -6,7 +6,7 @@ import { AppNav } from "@/components/AppNav";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Admin sign in — Afnan Sales Academy" },
+      { title: "Admin sign in — SellForge" },
       { name: "robots", content: "noindex" },
     ],
   }),

@@ -118,16 +118,16 @@ export const confirmEnrollment = createServerFn({ method: "POST" })
     if (error) throw error;
 
     const tierLabel = data.grantedTier === "pro" ? "Pro" : "Free";
-    const text = `Hi ${row.name || "there"},\n\nGood news — your Afnan Sales Academy enrollment has been confirmed. Your ${tierLabel} tier is unlocked.\n\nJust visit https://afnansales.com in the same browser you signed up from and everything opens automatically. Or open the site and everything will unlock within a few seconds.\n\nDiscord community: https://discord.gg/fsfPArVRg\n\n— Afnan Sales Academy`;
+    const text = `Hi ${row.name || "there"},\n\nGood news — your SellForge enrollment has been confirmed. Your ${tierLabel} tier is unlocked.\n\nJust visit https://sellforge.com in the same browser you signed up from and everything opens automatically. Or open the site and everything will unlock within a few seconds.\n\nDiscord community: https://discord.gg/fsfPArVRg\n\n— SellForge`;
     const html = `<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6;color:#111">
       <h2>You're in — ${tierLabel} tier unlocked ✅</h2>
       <p>Hi ${row.name || "there"},</p>
-      <p>Your Afnan Sales Academy enrollment has been confirmed. Your <strong>${tierLabel}</strong> tier is now unlocked.</p>
+      <p>Your SellForge enrollment has been confirmed. Your <strong>${tierLabel}</strong> tier is now unlocked.</p>
       <p>Open the site in the same browser you signed up from — everything unlocks automatically.</p>
       <p><a href="https://discord.gg/fsfPArVRg">Join the Discord community →</a></p>
-      <hr><p style="color:#666;font-size:12px">Afnan Sales Academy</p>
+      <hr><p style="color:#666;font-size:12px">SellForge</p>
     </div>`;
-    await sendGmail(row.email, `Your ${tierLabel} access is unlocked — Afnan Sales Academy`, html, text);
+    await sendGmail(row.email, `Your ${tierLabel} access is unlocked — SellForge`, html, text);
 
     return { ok: true, row };
   });
