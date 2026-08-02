@@ -75,7 +75,7 @@ const en: Dict = {
   proTitle: "Pro Mentorship", proPopular: "Most Popular", joinPro: "Join Pro", perMo: "/mo", lifetime: "lifetime",
   faqEyebrow: "Support", faqTitle: "Questions & answers", faqSub: "Everything you need to know about learning with us.",
   teamEyebrow: "The Team", teamTitle: "A team that actually shows up", teamSub: "Afnan leads, but a full team of coaches, an ethics advisor, and operators help every student.",
-  chatEyebrow: "Ask Anything", chatTitle: "Talk to the Academy AI", chatSub: "Instant answers on sales, our programs, or how to invest.",
+  chatEyebrow: "Ask Anything", chatTitle: "Talk to Kai", chatSub: "Instant answers on sales, our programs, or how to invest.",
   chatPlaceholder: "Ask a question about sales, the course, or investing…", chatSend: "Send",
   chatGreeting: "Hi — I'm Kai – Your Personal AI Assistant. Ask me anything about sales, our courses, or investing.",
   investEyebrow: "Investors", investTitle: "Invest in SellForge",
