@@ -60,7 +60,7 @@ export const Route = createFileRoute("/api/enroll")({
             : `New ${tier || "signup"} (${region || "—"}) — ${name || email}`;
 
         const textLines = [
-          `New ${kind === "invest" ? "investor inquiry" : "signup"} from afnansales.com`,
+          `New ${kind === "invest" ? "investor inquiry" : "signup"} from sellforge.com`,
           ``,
           `Name: ${name || "(not provided)"}`,
           `Email: ${email}`,
@@ -79,7 +79,7 @@ export const Route = createFileRoute("/api/enroll")({
           <p><strong>Region:</strong> ${escapeHtml(region || "—")}</p>
           <p><strong>Instructor:</strong> ${escapeHtml(instructor || "—")}</p>
           ${message ? `<p><strong>Message:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>")}</p>` : ""}
-          <hr><p style="color:#666;font-size:12px">Sent from afnansales.com</p>
+          <hr><p style="color:#666;font-size:12px">Sent from sellforge.com</p>
         </div>`;
 
         const boundary = `bnd_${Math.random().toString(36).slice(2)}`;

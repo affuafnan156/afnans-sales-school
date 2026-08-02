@@ -1,21 +1,20 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { AppNav } from "@/components/AppNav";
 
-export const Route = createFileRoute("/auth")({
+export const Route = createFileRoute("/admin/login")({
   head: () => ({
     meta: [
-      { title: "Admin sign in — Afnan Sales Academy" },
-      { name: "robots", content: "noindex" },
+      { title: "Staff Sign In — SellForge" },
+      { name: "description", content: "Restricted SellForge staff area." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
-  component: AuthPage,
+  component: AdminLoginPage,
 });
 
-function AuthPage() {
+function AdminLoginPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -26,36 +25,26 @@ function AuthPage() {
     setError(null);
     setLoading(true);
     try {
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
-        });
-        if (error) throw error;
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-      }
-      navigate({ to: "/admin" });
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      navigate({ to: "/admin/dashboard" });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Authentication failed");
+      setError(err instanceof Error ? err.message : "Sign in failed");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <AppNav />
-      <main className="mx-auto max-w-md px-6 py-16">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary">Admin area</div>
-        <h1 className="mt-2 font-display text-4xl">
-          {mode === "signin" ? "Sign in" : "Create admin account"}
-        </h1>
+    <div className="flex min-h-screen items-center justify-center bg-background px-6 text-foreground">
+      <div className="w-full max-w-sm">
+        <div className="flex items-center gap-2 font-display text-2xl">
+          <span className="inline-block h-3 w-3 rounded-full bg-primary shadow-glow" />
+          SELL <span className="text-primary">FORGE</span>
+        </div>
+        <h1 className="mt-6 font-display text-3xl">Staff sign in</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          This section is for the academy team only. Use <strong>affuafnan156@gmail.com</strong> to
-          get automatic admin access.
+          Restricted area. Accounts without administrator permissions will be denied.
         </p>
 
         <form
@@ -66,6 +55,7 @@ function AuthPage() {
           <input
             type="email"
             required
+            autoComplete="username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="rounded-md border border-border bg-background px-4 py-2 text-sm outline-none focus:border-primary"
@@ -76,7 +66,8 @@ function AuthPage() {
           <input
             type="password"
             required
-            minLength={6}
+            minLength={8}
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="rounded-md border border-border bg-background px-4 py-2 text-sm outline-none focus:border-primary"
@@ -91,21 +82,10 @@ function AuthPage() {
             disabled={loading}
             className="mt-2 rounded-md bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow disabled:opacity-60"
           >
-            {loading ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account"}
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-            className="text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground"
-          >
-            {mode === "signin" ? "Need to create the admin account?" : "Already have an account? Sign in"}
+            {loading ? "Signing in…" : "Sign in"}
           </button>
         </form>
-
-        <div className="mt-6 text-center text-xs text-muted-foreground">
-          <Link to="/" className="hover:text-primary">← Back to home</Link>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

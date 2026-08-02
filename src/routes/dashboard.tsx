@@ -5,7 +5,7 @@ import { useProgress, xpForLevel } from "@/lib/progress";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — Afnan Sales Academy" },
+      { title: "Dashboard — SellForge" },
       { name: "description", content: "Your personal sales coach: today's mission, streak, skill scores, and next lesson." },
       { name: "robots", content: "noindex" },
     ],

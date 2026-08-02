@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
 });
 
 const ACADEMY_EMAIL = "affuafnan156@gmail.com";
-const INVEST_EMAIL = "invest@afnansales.com";
+const INVEST_EMAIL = "invest@sellforge.com";
 const DISCORD_URL = "https://discord.gg/fsfPArVRg";
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -170,7 +170,7 @@ function FAQ() {
     { id: "how", q: "How do I unlock the full library?", a: "Fill in the enroll form at the bottom of this page. Once we get your details you get an instant unlock badge and the content opens up." },
     { id: "discord", q: "Is there a community?", a: `Yes — our Discord: ${DISCORD_URL}. Both Free and Pro students get in.` },
     { id: "refund", q: "Is there a refund policy for Pro?", a: "Yes. If Pro isn't the right fit, contact us within 14 days for a full refund." },
-    { id: "invest", q: "Can I invest?", a: "Yes. Email invest@afnansales.com with name, background, and ticket size. Interest-free (riba-free) structures available." },
+    { id: "invest", q: "Can I invest?", a: "Yes. Email invest@sellforge.com with name, background, and ticket size. Interest-free (riba-free) structures available." },
   ];
   return (
     <section id="faq" className="mx-auto max-w-4xl px-6 py-16">
@@ -198,7 +198,7 @@ function FAQ() {
 
 function ChatSection() {
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: "Hi — I'm the Afnan Sales Academy assistant. Ask me anything about sales, our programs, or how to unlock the full course." },
+    { role: "assistant", content: "Hi — I'm Kai – Your Personal AI Assistant. Ask me anything about sales, our programs, or how to unlock the full course." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -241,7 +241,7 @@ function ChatSection() {
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="mb-6 text-center">
           <div className="text-xs uppercase tracking-[0.3em] text-primary">Ask Anything</div>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">Talk to the Academy AI</h2>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">Talk to Kai — Your Personal AI Assistant</h2>
         </div>
         <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
           <div ref={scrollRef} className="max-h-[380px] min-h-[240px] space-y-4 overflow-y-auto p-6">
@@ -478,7 +478,7 @@ function Team() {
 function Footer() {
   return (
     <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-      <div>© {new Date().getFullYear()} Afnan Sales Academy · Ethical sales, open to everyone.</div>
+      <div>© {new Date().getFullYear()} SellForge · Ethical sales, open to everyone.</div>
       <div className="mt-2 space-x-3">
         <a href={DISCORD_URL} target="_blank" rel="noreferrer" className="hover:text-primary">Discord</a>
         <a href={`mailto:${ACADEMY_EMAIL}`} className="hover:text-primary">Contact</a>

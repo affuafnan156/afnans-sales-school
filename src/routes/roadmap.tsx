@@ -5,7 +5,7 @@ import { useProgress } from "@/lib/progress";
 export const Route = createFileRoute("/roadmap")({
   head: () => ({
     meta: [
-      { title: "30-Day Beginner Roadmap — Afnan Sales Academy" },
+      { title: "30-Day Beginner Roadmap — SellForge" },
       { name: "description", content: "Day 1 → Day 30 sales roadmap. Exactly what to learn each day, in 15 minutes." },
     ],
   }),
