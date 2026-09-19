@@ -9,9 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as LabRouteImport } from './routes/lab'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ArcadeRouteImport } from './routes/arcade'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -21,9 +25,19 @@ import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AuthenticatedAdminDashboardRouteImport } from './routes/_authenticated/admin.dashboard'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileRoute = ProfileRouteImport.update({
@@ -31,9 +45,19 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LabRoute = LabRouteImport.update({
   id: '/lab',
   path: '/lab',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -81,9 +105,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/arcade': typeof ArcadeRoute
   '/dashboard': typeof DashboardRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/lab': typeof LabRoute
+  '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
+  '/signup': typeof SignupRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
@@ -93,9 +121,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/arcade': typeof ArcadeRoute
   '/dashboard': typeof DashboardRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/lab': typeof LabRoute
+  '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
+  '/signup': typeof SignupRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
@@ -107,9 +139,13 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/arcade': typeof ArcadeRoute
   '/dashboard': typeof DashboardRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/lab': typeof LabRoute
+  '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
+  '/signup': typeof SignupRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/api/enroll': typeof ApiEnrollRoute
@@ -121,9 +157,13 @@ export interface FileRouteTypes {
     | '/'
     | '/arcade'
     | '/dashboard'
+    | '/forgot-password'
     | '/lab'
+    | '/login'
     | '/profile'
+    | '/reset-password'
     | '/roadmap'
+    | '/signup'
     | '/admin/login'
     | '/api/chat'
     | '/api/enroll'
@@ -133,9 +173,13 @@ export interface FileRouteTypes {
     | '/'
     | '/arcade'
     | '/dashboard'
+    | '/forgot-password'
     | '/lab'
+    | '/login'
     | '/profile'
+    | '/reset-password'
     | '/roadmap'
+    | '/signup'
     | '/admin/login'
     | '/api/chat'
     | '/api/enroll'
@@ -146,9 +190,13 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/arcade'
     | '/dashboard'
+    | '/forgot-password'
     | '/lab'
+    | '/login'
     | '/profile'
+    | '/reset-password'
     | '/roadmap'
+    | '/signup'
     | '/admin/login'
     | '/api/chat'
     | '/api/enroll'
@@ -160,9 +208,13 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   ArcadeRoute: typeof ArcadeRoute
   DashboardRoute: typeof DashboardRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   LabRoute: typeof LabRoute
+  LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RoadmapRoute: typeof RoadmapRoute
+  SignupRoute: typeof SignupRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiEnrollRoute: typeof ApiEnrollRoute
@@ -170,11 +222,25 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roadmap': {
       id: '/roadmap'
       path: '/roadmap'
       fullPath: '/roadmap'
       preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile': {
@@ -184,11 +250,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lab': {
       id: '/lab'
       path: '/lab'
       fullPath: '/lab'
       preLoaderRoute: typeof LabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -266,9 +346,13 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   ArcadeRoute: ArcadeRoute,
   DashboardRoute: DashboardRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   LabRoute: LabRoute,
+  LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RoadmapRoute: RoadmapRoute,
+  SignupRoute: SignupRoute,
   AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
   ApiEnrollRoute: ApiEnrollRoute,
